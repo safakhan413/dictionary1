@@ -10,7 +10,6 @@ import sqlite3
 
 
 from thesaurus.models import Thesuarusitem
-from thesaurus.serializers import ThesaurusSerializer
 #
 # from django.core.files.storage import default_storage
 # Create your views here.
