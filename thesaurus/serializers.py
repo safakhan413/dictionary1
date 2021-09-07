@@ -5,5 +5,5 @@ class ThesaurusSerializer(serializers.ModelSerializer):
     class Meta:
         # managed = False
         model = Thesuarusitem
-        db_table = 'data'
+        db_table = 'thesaurus_thesuarusitem'
         fields = ('word', 'meaning')

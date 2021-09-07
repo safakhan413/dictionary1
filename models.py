@@ -124,4 +124,4 @@ class ThesaurusThesuarusitem(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'data'
+        db_table = 'thesaurus_thesuarusitem'
