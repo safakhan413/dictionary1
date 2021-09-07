@@ -12,10 +12,26 @@ import os
 from django.core.wsgi import get_wsgi_application
 import django
 import sys
-sys.path.append("H:\Coding and Hackathons\coding problems\random-passion-projects\python-mysql-dictionary\dictionary")
+sys.path.append("H:\Coding and Hackathons\coding problems\new dictionary\dictionary1")
 print (sys.path)
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dictionary.settings')
 django.setup()
 application = get_wsgi_application()
+
+
+# import os
+#
+# from django.core.wsgi import get_wsgi_application
+# from whitenoise.django import DjangoWhiteNoise
+#
+# import django
+# import sys
+# sys.path.append("H:\Coding and Hackathons\coding problems\random-passion-projects\python-mysql-dictionary\dictionary")
+# print (sys.path)
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dictionary.settings')
+# django.setup()
+# application = get_wsgi_application()
+# # application = DjangoWhiteNoise(get_wsgi_application())
+
 
 
