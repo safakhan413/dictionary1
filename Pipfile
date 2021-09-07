@@ -11,6 +11,7 @@ dj-database-url = "*"
 pillow = "*"
 gunicorn = "*"
 django-heroku = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
