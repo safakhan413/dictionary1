@@ -1,0 +1,5 @@
+*.psd
+*.pdf
+test
+staticfiles
+thesaurus/serializers.py
