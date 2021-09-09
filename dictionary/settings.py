@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+# COPY thesaurus_thesuarusitem(word,meaning,id)
+# FROM 'H:\Coding and Hackathons\coding problems\new dictionary\dictionary1\thesaurus_thesuarusitem.csv'
+# DELIMITER ','
+# CSV HEADER;
 from pathlib import Path
 import os
 import django_heroku
@@ -85,17 +88,30 @@ WSGI_APPLICATION = 'dictionary.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         # 'NAME': BASE_DIR / 'db.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'Dictionary.sqlite'),
+#     },
+#     # 'dictionary': {
+#     #     'ENGINE': 'django.db.backends.sqlite3',
+#     #
+#     # }
+# }
+
+##at 2 utf 8 i didnt do
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'Dictionary.sqlite'),
-    },
-    # 'dictionary': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #
-    # }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Dictionary',
+        'USER': 'postgres',
+        'PASSWORD': 'safa',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
+
 
 
 # Password validation
@@ -134,9 +150,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-django_heroku.settings(locals())
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# django_heroku.settings(locals())
