@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 # FROM 'H:\Coding and Hackathons\coding problems\new dictionary\dictionary1\thesaurus_thesuarusitem.csv'
 # DELIMITER ','
 # CSV HEADER;
+
+# heroku config:set DJANGO_SETTINGS_MODULE='dictionary.settings'
 from pathlib import Path
 import os
 import django_heroku
