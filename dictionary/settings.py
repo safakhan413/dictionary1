@@ -114,6 +114,9 @@ WSGI_APPLICATION = 'dictionary.wsgi.application'
 #     }
 # }
 
+# heroku pg:psql --app dictionary1safa < backup.sql
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
