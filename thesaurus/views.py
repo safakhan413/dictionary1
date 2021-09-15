@@ -33,28 +33,35 @@ def word(request):
         worditems.append(w.word)
     # if word in words.raw("SELECT id, word FROM thesaurus_thesuarusitem WHERE word = '%s'" %word).word:
     raw_query_results = words.raw("SELECT id, meaning FROM thesaurus_thesuarusitem WHERE word = '%s'" %word)
-    if len(list(raw_query_results)) > 0:
+    try:
+        if len(list(raw_query_results)) > 0:
 
-        for w in raw_query_results:
-            # if len(list())
-            # meaning = meaning + '\n' + w.meaning
-            meaning.append(w.meaning)
-            print('Im all words tables $*^*&^&*^',meaning)
+            for w in raw_query_results:
+                # if len(list())
+                # meaning = meaning + '\n' + w.meaning
+                meaning.append(w.meaning)
+                print('Im all words tables $*^*&^&*^',meaning)
+            results = {
+                'word': word,
+                'meaning': meaning,
+            }
+
+            return render(request, 'word.html', {'results': results})
+        else:
+            # if
+            # print('!##$$$$$$$$$$$$$,', worditems)
+            close_match = get_close_matches(word, worditems, n = 1, cutoff=0.8)
+            print('!##$$$$$$$$$$$$$ im closematch,', close_match)
+            results = {
+                'word': word,
+                'meaning': ["We don't have this word in dictionary. Did you mean '%s'. If yes please input this word again to search." %close_match[0]],
+            }
+            return render(request, 'word.html', {'results': results})
+    except(RuntimeError, TypeError, NameError):
         results = {
-            'word': word,
-            'meaning': meaning,
-        }
-
-        return render(request, 'word.html', {'results': results})
-    else:
-
-        # print('!##$$$$$$$$$$$$$,', worditems)
-        close_match = get_close_matches(word, worditems, n = 1, cutoff=0.8)
-        print('!##$$$$$$$$$$$$$ im closematch,', close_match)
-        results = {
-            'word': word,
-            'meaning': ["We don't have this word in dictionary. Did you mean '%s'. If yes please input this word again to search." %close_match[0]],
-        }
+                'word': word,
+                'meaning': ["This does not look like a valid input. Please try again."],
+            }
         return render(request, 'word.html', {'results': results})
     # else:
     # results = {
