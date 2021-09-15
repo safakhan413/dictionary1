@@ -103,18 +103,27 @@ WSGI_APPLICATION = 'dictionary.wsgi.application'
 # }
 
 ##at 2 utf 8 i didnt do
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'Dictionary',
+#         'USER': 'postgres',
+#         'PASSWORD': 'safa',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Dictionary',
-        'USER': 'postgres',
-        'PASSWORD': 'safa',
-        'HOST': 'localhost',
+        'NAME': 'dbbgen8nbbit07',
+        'USER': 'ogtczcyecbifve',
+        'PASSWORD': '0c83259e457b796af698b406825424639042682acfb62b7eceba851c8fd87082',
+        'HOST': 'ec2-54-156-24-159.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
